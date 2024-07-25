@@ -6,7 +6,21 @@ public class Main {
         LOGIN login = new LOGIN();
         login.setVisible(true);
 
+        /*
 
 
+
+        CREAR crear = new CREAR();
+        crear.setVisible(true);
+
+        LEER leer = new LEER();
+        leer.setVisible(true);
+
+        ACTUALIZAR actualizar = new ACTUALIZAR();
+        actualizar.setVisible(true);
+
+        ELIMINAR eliminar = new ELIMINAR();
+        eliminar.setVisible(true);
+        */
     }
 }
