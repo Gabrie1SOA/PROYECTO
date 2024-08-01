@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LOGIN extends JFrame{
     private JLabel label;
@@ -15,6 +17,20 @@ public class LOGIN extends JFrame{
         setContentPane(panel1);
 
 
+        LOGINButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("MENU");
+                MENU menu = new MENU();
+                frame.setContentPane(menu.getContentPane());
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+                dispose();
+
+
+            }
+        });
     }
 
 
