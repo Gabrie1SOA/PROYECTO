@@ -1,7 +1,7 @@
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class LEER extends JFrame {
     private JButton backbuttonR;
@@ -17,12 +17,58 @@ public class LEER extends JFrame {
         return DriverManager.getConnection(url, user, password);
     }
 
+    public void leer() throws SQLException {
+        String idR= idbookR.getText();
 
+        Connection conex = conexion();
+        String query= "SELECT * FROM libros WHERE Id_Libro = ?;";
+
+        PreparedStatement pstm = conex.prepareStatement(query);
+        pstm.setString(1, idR);
+
+        ResultSet rs = pstm.executeQuery();
+        while (rs.next()) {
+            String id = rs.getString("Id_Libro");
+            String name = rs.getString("Nombre_Libro");
+            String autor = rs.getString("Autor");
+
+            JOptionPane.showMessageDialog(null, "ID: " + id + "\n" + "Nombre: " + name + "\n" + "Autor: " + autor);
+
+        }
+    }
 
     public LEER () {
         super("READ");
         setSize(300,300);
         setContentPane(panelREAD);
+
+
+        searchbuttonR.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try {
+                    leer();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+            }
+        });
+
+
+        backbuttonR.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("MENU");
+                MENU menu = new MENU();
+                frame.setContentPane(menu.getContentPane());
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+                dispose();
+            }
+        });
 
     }
 }

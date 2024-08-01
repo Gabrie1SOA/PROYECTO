@@ -44,5 +44,46 @@ public class MENU extends JFrame{
 
             }
         });
+
+        readbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("LEER");
+                LEER leer = new LEER();
+                frame.setContentPane(leer.getContentPane());
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+                dispose();
+            }
+        });
+
+        updatebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("ACTUALIZAR");
+                ACTUALIZAR actualizar = new ACTUALIZAR();
+                frame.setContentPane(actualizar.getContentPane());
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+                dispose();
+            }
+        });
+
+        deletebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame("ELIMINAR");
+                ELIMINAR eliminar = new ELIMINAR();
+                frame.setContentPane(eliminar.getContentPane());
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+                dispose();
+            }
+        });
+
+
     }
 }
