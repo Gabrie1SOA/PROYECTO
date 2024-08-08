@@ -13,6 +13,7 @@ public class CREATEUSR extends JFrame {
     private JTextField typeCU;
     private JButton registrarbuttonCU;
     private JButton regresarButtonCU;
+    private JButton ELIMINARButton;
 
     public Connection conexion() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/libroconnect";
@@ -49,6 +50,32 @@ public class CREATEUSR extends JFrame {
 
     }
 
+    public void eliminar() throws SQLException{
+        String usrCU = userCU.getText();
+
+
+        Connection conex = conexion();
+
+        String query= "DELETE FROM Usuarios WHERE Usuario = ?;";
+
+        PreparedStatement pstm = conex.prepareStatement(query);
+        pstm.setString(1, usrCU);
+
+
+        //Actualizamos
+        int rowsAffected= pstm.executeUpdate();
+
+        if(rowsAffected>0){
+            JOptionPane.showMessageDialog(null, "Cuenta eliminada");
+        }
+
+        pstm.close();
+        conex.close();
+
+
+    }
+
+
     public CREATEUSR() {
 
 
@@ -76,6 +103,16 @@ public class CREATEUSR extends JFrame {
                 frame.pack();
                 frame.setVisible(true);
                 dispose();
+            }
+        });
+        ELIMINARButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    eliminar();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
