@@ -50,6 +50,15 @@ public class LOGIN extends JFrame{
                 frame.setVisible(true);
             }
 
+            if (tipo.equals("usuario")) {
+                JFrame frame = new JFrame("MENU");
+                MENU menu = new MENU();
+                frame.setContentPane(menu.getContentPane());
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+            }
+
         } else {
             JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA INCORRECTA");
         }
