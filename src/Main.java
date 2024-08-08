@@ -5,13 +5,5 @@ public class Main {
 
         LOGIN login = new LOGIN();
         login.setVisible(true);
-
-
-
-
-
-
     }
-
-
 }

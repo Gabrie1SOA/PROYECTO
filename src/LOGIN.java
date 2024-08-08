@@ -45,18 +45,20 @@ public class LOGIN extends JFrame{
                 JFrame frame = new JFrame("MENU");
                 MENU menu = new MENU();
                 frame.setContentPane(menu.getContentPane());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+                dispose();
             }
 
             if (tipo.equals("usuario")) {
                 JFrame frame = new JFrame("BUSCAR");
                 LEER leer = new LEER();
                 frame.setContentPane(leer.getContentPane());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
+                dispose();
             }
 
         } else {

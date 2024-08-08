@@ -40,8 +40,8 @@ public class MENU extends JFrame{
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
-
                 dispose();
+
 
             }
         });
@@ -82,6 +82,7 @@ public class MENU extends JFrame{
                 frame.pack();
                 frame.setVisible(true);
                 dispose();
+
             }
         });
 
@@ -93,10 +94,11 @@ public class MENU extends JFrame{
                 JFrame frame = new JFrame("CREARUSUARIO");
                 CREATEUSR registrar = new CREATEUSR();
                 frame.setContentPane(registrar.getContentPane());
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.pack();
                 frame.setVisible(true);
                 dispose();
+
             }
         });
     }
