@@ -11,6 +11,7 @@ public class MENU extends JFrame{
     private JButton updatebutton;
     private JButton deletebutton;
     private JButton backButton;
+    private JButton createuserM;
 
     public MENU (){
         super("LibroConnect");
@@ -85,5 +86,18 @@ public class MENU extends JFrame{
         });
 
 
+        createuserM.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                JFrame frame = new JFrame("CREARUSUARIO");
+                CREATEUSR registrar = new CREATEUSR();
+                frame.setContentPane(registrar.getContentPane());
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frame.pack();
+                frame.setVisible(true);
+                dispose();
+            }
+        });
     }
 }
